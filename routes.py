@@ -28,10 +28,10 @@ def show_recipe(recipe_id):
 @app.route("/result", methods=["GET"])
 def result():
     query = request.args["query"]
-    #if query.result(query):
-    return render_template("searchresult.html", recipes = recipes)
-    #else:
-        #return render_template("errormessage.html", message = "Annetulla sanalla ei löydy reseptejä")
+    if recipes.result(query):
+        return render_template("searchresult.html", recipes = recipes.result(query))
+    else:
+        return render_template("errormessage.html", message = "Annetulla sanalla ei löydy reseptejä")
     
 @app.route("/review", methods=["POST"])
 def review():

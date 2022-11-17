@@ -1,5 +1,5 @@
 from db import db
-import users
+import users, recipes
 
 def get_recipes():
     sql = "SELECT id, name FROM recipes ORDER BY name"
@@ -10,7 +10,7 @@ def get_shown_recipes(user_id):
     return db.session.execute(sql, {"user_id":user_id}).fetchall()
 
 def result(query):
-    sql = "SELECT id, content FROM recipes WHERE content LIKE :query"
+    sql = "SELECT name, content FROM recipes WHERE name LIKE :query OR content LIKE :query"
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
 
