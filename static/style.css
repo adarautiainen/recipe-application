@@ -36,6 +36,7 @@ body {
    margin: auto;
    max-width: 45em; 
    background:rgb(254, 240, 222);
+   font-family: Monaco, monospace;
 }
 
 .recipes {
@@ -62,6 +63,18 @@ body {
 }
 
 .newrecipe {
+    margin-top: 1em;
+    border: 3px rgb(112, 136, 113) solid;
+    padding: 15px;
+}
+
+.register {
+    margin-top: 1em;
+    border: 3px rgb(112, 136, 113) solid;
+    padding: 15px;
+}
+
+.error {
     margin-top: 1em;
     border: 3px rgb(112, 136, 113) solid;
     padding: 15px;
