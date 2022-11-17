@@ -49,6 +49,7 @@ def review():
     recipes.add_reviews(recipe_id, users.user_id(), stars, review)
     return redirect("/recipe/"+str(recipe_id))
 
+#delete recipe
 @app.route("/delete", methods=["GET", "POST"])
 def delete_recipe():
     users.require_role(True)
@@ -64,6 +65,7 @@ def delete_recipe():
 
     return redirect("/")
 
+#delete comment
 @app.route("/deletecom", methods=["GET", "POST"])
 def delete_comemnt():
     users.require_role(True)
