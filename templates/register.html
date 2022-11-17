@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
 <body>
+    <div class="register">
 <form action="/register" method="post">
 Käyttäjänimi: <input type="text" name="username">
 <p>
@@ -14,4 +15,6 @@ Rooli: <select name="role">
 <p>
 <input type="submit" value="Luo käyttäjä">
 </form>
+</div>
+<a href="/">Takaisin kirjautumissivulle</a>
 </body>
