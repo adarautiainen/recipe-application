@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
-
+<body>
+    <div class="newrecipe">
 <h2>Julkaise uusi resepti </h2>
-<hr>
 <p>
 <form action="/write" method="post">
     <label for="name">Reseptin nimi:</label>
@@ -15,3 +15,5 @@
 
     <input type="submit" value="Julkaise">
     </form>
+</div>
+</body>

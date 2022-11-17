@@ -1,12 +1,14 @@
 h1 {
-    border: 2px #eee solid;
+    border: 3px rgb(112, 136, 113) solid;
     color: darkolivegreen;
     text-align: center;
     padding: 20px;
+    margin-top: .5em;
 }
 
 h2 {
-    color:rgb(82, 140, 78)
+    color:rgb(82, 140, 78);
+    margin-top: 1em;
 }
 
 h3 {
@@ -30,5 +32,37 @@ ul {
     color: rgb(28, 30, 29)
 }
 
+body {
+   margin: auto;
+   max-width: 45em; 
+   background:rgb(254, 240, 222);
+}
 
+.recipes {
+    border: 3px rgb(112, 136, 113) solid;
+    padding: 20px;
+}
 
+.loginblock {
+    margin-top: .5em;
+    border: 3px rgb(112, 136, 113) solid;
+    padding: 15px;
+}
+
+.search {
+    margin-top: .5em;
+    border: 3px rgb(112, 136, 113) solid;
+    padding: 15px;
+}
+
+.loginpage {
+    margin-top: 1em;
+    border: 3px rgb(112, 136, 113) solid;
+    padding: 15px;
+}
+
+.newrecipe {
+    margin-top: 1em;
+    border: 3px rgb(112, 136, 113) solid;
+    padding: 15px;
+}

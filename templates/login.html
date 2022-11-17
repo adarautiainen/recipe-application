@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+<body>
 <form action="/login" method="post">
+    <div class="loginpage">
     Tunnus: <input type="text" name="username">
     <p>
     Salasana: <input type="password" name="password">
@@ -7,4 +9,5 @@
     <input type="submit" value="Kirjaudu">
     </form>
     Jos sinulla ei ole vielä tunnusta, voit luoda sen <a href="/register">tästä</a>
-    
+</div>
+</body>
