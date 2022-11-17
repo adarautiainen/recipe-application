@@ -2,16 +2,21 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY, 
     username TEXT UNIQUE, 
     password TEXT, 
-    admin BOOLEAN);
+    role INTEGER);
 
 CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
-    content TEXT,
-    user_id INTEGER REFERENCES users
+    name TEXT,
+    content TEXT
+    user_id INTEGER REFERENCES users,
+    visible INTEGER
     );
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    review TEXT
     user_id INTEGER REFERENCES users,
-    visible BOOLEAN);
+    recipe_id INTEGER REFERENCES recipes,
+    stars INTEGER,
+    review TEXT,
+    visible INTEGER
+    );
