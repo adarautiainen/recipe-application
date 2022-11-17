@@ -2,6 +2,7 @@ from db import db
 from flask import session, request, abort
 from werkzeug.security import check_password_hash, generate_password_hash
 
+#user login
 def login(username, password):
     sql = "SELECT id, password, role FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username":username})
@@ -34,3 +35,4 @@ def require_role(role):
 
 def user_id():
     return session.get("user_id", 0)
+
