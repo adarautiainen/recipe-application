@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+<h2> Resepti: {{name}}</h2>
+
+<ul>
+<li>Julkaisija: {{user}}</li>
+</ul>
+
+<h3>Ainesosat ja ohjeet:</h3>
+<ul><li>{{content}}</li></ul>
+
+{% if reviews %}
+<h3>Kommentit:</h3>
+{% endif %}
+
+<ul>
+{% for entry in reviews %}
+<li> {{entry[0]}} ({{entry[1]}}/5): "{{entry[2]}}</li>
+{% endfor %}
+</ul>
+
+{% if session.user_id %}
+<h3>Kommentoi reseptiä:</h3>
+<form action="/review" method="post">
+Arvosana:
+<input type="radio" name="stars" value="1">1
+<input type="radio" name="stars" value="2">2
+<input type="radio" name="stars" value="3">3
+<input type="radio" name="stars" value="4">4
+<input type="radio" name="stars" value="5">5
+
+
+<p>Kommentti:</p>
+<textarea name="review" rows="3" cols="40" maxlength="1000"></textarea>
+<p><input type="submit" value="Kommentoi">
+<input type="hidden" name="recipe_id" value="{{ id }}">
+</form>
+{% endif %}

@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+
+<h2>Julkaise uusi resepti </h2>
+<hr>
+<p>
+<form action="/write" method="post">
+    <label for="name">Reseptin nimi:</label>
+    <input type="text" name="name">
+    </p>
+
+    <label for="name">Kirjoita tähän ainesosat ja ohjeet:</label>
+    <br>
+    <textarea name="content" rows="10" cols="40"></textarea>
+    </p>
+
+    <input type="submit" value="Julkaise">
+    </form>

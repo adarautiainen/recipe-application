@@ -1,0 +1,34 @@
+h1 {
+    border: 2px #eee solid;
+    color: darkolivegreen;
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    color:rgb(82, 140, 78)
+}
+
+h3 {
+    color:rgb(82, 140, 78)
+}
+
+form {
+    color: black
+}
+
+a {
+    color: rgb(60, 112, 12)
+}
+
+i {
+    color: rgb(234, 90, 24)
+}
+
+ul {
+    list-style-type: square;
+    color: rgb(28, 30, 29)
+}
+
+
+

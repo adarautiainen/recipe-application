@@ -1,0 +1,31 @@
+<title>Reseptisovellus</title>
+<link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+<h1>Reseptisovellus</h1>
+
+<font size ="+1">Reseptit:</font>
+<ul>
+{% for recipe in recipes %}
+<li><a href="/recipe/{{recipe.id}}">{{recipe.name}}</a></li>
+{% endfor %}
+</ul>
+
+<hr>
+{% if session.user_id %}
+<p> Olet nyt kirjautunut sisään. </p>
+<a href="/new">Julkaise resepti</a> | <a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+{% endif %}
+
+<hr>
+<form action="/result" method="GET">
+Hae reseptiä sanalla: <input type="text" name="query">
+<br>
+<input type="submit" value="Hae">
+</form>
+
+<hr>
+{% if session.user_role == 1%}
+<p>Poistotoiminnot:</p>
+<a href="/delete">Poista resepti tai kommentti</a>
+{% endif %}

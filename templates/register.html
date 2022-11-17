@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+<form action="/register" method="post">
+Käyttäjänimi: <input type="text" name="username">
+<p>
+Salasana: <input type="password" name="password1">
+<p>
+Salasana uudestaan: <input type="password" name="password2">
+<p>
+Rooli: <select name="role">
+<option value=1> Käyttäjä
+<option value=2> Ylläpitäjä
+</select>
+<p>
+<input type="submit" value="Luo käyttäjä">
+</form>
