@@ -1,11 +1,6 @@
 from db import db
 import users
 
-#def get_list():
-    #sql = "SELECT R.content, U.username FROM recipes R, users U WHERE R.user_id=U.id ORDER BY R.id"
-    #result = db.session.execute(sql)
-    #return result.fetchall()
-
 def get_recipes():
     sql = "SELECT id, name FROM recipes ORDER BY name"
     return db.session.execute(sql).fetchall()
