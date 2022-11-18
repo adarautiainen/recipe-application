@@ -11,6 +11,7 @@
 <li><a href="/recipe/{{recipe.id}}">{{recipe.name}}</a></li>
 {% endfor %}
 </ul>
+<!-- <a href="/order">Näytä reseptit arvioiden mukaan</a> -->
 </div>
 
 <div class="loginblock">
@@ -24,7 +25,7 @@
 
 <div class="search">
 <form action="/result" method="GET">
-Hae reseptiä sanalla: <input type="text" name="query">
+Hae reseptiä ainesosalla: <input type="text" name="query">
 <br>
 <input type="submit" value="Hae">
 </form>
