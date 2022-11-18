@@ -3,9 +3,9 @@
 <body>
 <h2>Haun tulokset:</h2>
 <ul>
-    {% for recipe in recipes %}
-    <li><a href="/recipe/{{recipe.id}}">{{recipe.name}}</a></li>
-    {% endfor %}
+{% for recipe in recipes %}
+<li><a href="/recipe/{{recipe.id}}">{{recipe.name}}</a></li>
+{% endfor %}
 </ul>
 
 <a href="/">Takaisin etusivulle</a>
