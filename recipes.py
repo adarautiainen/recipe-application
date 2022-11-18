@@ -15,7 +15,7 @@ def result(query):
     return result.fetchall()
 
 def order():
-    sql = "SELECT R.name, W.stars FROM recipes R, reviews W ORDER BY W.stars"
+    sql = "SELECT R.name, W.scores FROM recipes R, reviews W ORDER BY W.scores"
     return db.session.execute(sql).fetchall()
 
 def write(name, content):
@@ -32,12 +32,12 @@ def get_info(recipe_id):
     return db.session.execute(sql, {"recipe_id": recipe_id}).fetchone()
 
 def get_reviews(recipe_id):
-    sql = "SELECT U.username, R.stars, R.review FROM users U, reviews R WHERE R.user_id=U.id AND R.recipe_id=:recipe_id ORDER BY R.id"
+    sql = "SELECT U.username, R.scores, R.review FROM users U, reviews R WHERE R.user_id=U.id AND R.recipe_id=:recipe_id ORDER BY R.id"
     return db.session.execute(sql, {"recipe_id":recipe_id}).fetchall()
 
-def add_reviews(recipe_id, user_id, stars, review):
-    sql = "INSERT INTO reviews (recipe_id, user_id, stars, review) VALUES (:recipe_id, :user_id, :stars, :review)"
-    db.session.execute(sql, {"recipe_id":recipe_id, "user_id":user_id, "stars":stars, "review":review})
+def add_reviews(recipe_id, user_id, scores, review):
+    sql = "INSERT INTO reviews (recipe_id, user_id, scores, review) VALUES (:recipe_id, :user_id, :scores, :review)"
+    db.session.execute(sql, {"recipe_id":recipe_id, "user_id":user_id, "scores":scores, "review":review})
     db.session.commit()
 
 def get_shown_reviews(user_id):
