@@ -10,9 +10,13 @@ def get_shown_recipes(user_id):
     return db.session.execute(sql, {"user_id":user_id}).fetchall()
 
 def result(query):
-    sql = "SELECT name, content FROM recipes WHERE name LIKE :query OR content LIKE :query"
+    sql = "SELECT id, name, content FROM recipes WHERE name LIKE :query OR content LIKE :query"
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
+
+def order():
+    sql = "SELECT R.name, W.stars FROM recipes R, reviews W ORDER BY W.stars"
+    return db.session.execute(sql).fetchall()
 
 def write(name, content):
     user_id = users.user_id()

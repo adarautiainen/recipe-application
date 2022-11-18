@@ -19,6 +19,10 @@ def write():
     else:
         return render_template("errormessage.html", message = "Julkaisu ei onnistunut")
 
+@app.route("/order")
+def order():
+    return render_template("ordered.html", recipes = recipes.order())
+
 @app.route("/recipe/<int:recipe_id>")
 def show_recipe(recipe_id):
     info = recipes.get_info(recipe_id)
