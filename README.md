@@ -5,7 +5,7 @@ Sovelluksessa on reseptejä, joita käyttäjät voivat lukea. Käyttäjät voiva
 Sovelluksen ominaisuuksia ovat: 
 * Käyttäjä voi kirjautua sisään ja ulos sekä luoda tunnuksen
 * Käyttäjä näkee listan resepteistä ja voi siirtyä katsomaan reseptejä tarkemmin (ainesosat ja valmistusohjeet)
-* Käyttäjä voi myös nähdä listan missä reseptit on järjestetty arvioiden mukaan (kesken)
+* Käyttäjä voi myös nähdä listan missä reseptit on järjestetty arvioiden mukaan
 * Käyttäjä voi arvioida reseptejä ja lukea muiden käyttäjien arvioita
 * Käyttäjä voi etsiä reseptejä, joiden ohjeessa on annettu hakusana
 * Ylläpitäjä voi poistaa arvioita ja reseptejä (kesken)
