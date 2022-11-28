@@ -40,9 +40,7 @@ def result():
 @app.route("/review", methods=["POST"])
 def review():
     recipe_id = request.form["recipe_id"]
-    stars = int(request.form["stars"])
-    if stars < 1 or stars > 5:
-        return render_template("error.html", message = "Tähtimäärä väärä")
+    scores = int(request.form["scores"])
 
     review = request.form["review"]
     if len(review) > 1000:
@@ -50,7 +48,7 @@ def review():
     if review == "":
         review = "-"
 
-    recipes.add_reviews(recipe_id, users.user_id(), stars, review)
+    recipes.add_reviews(recipe_id, users.user_id(), scores, review)
     return redirect("/recipe/"+str(recipe_id))
 
 #delete recipe

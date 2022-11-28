@@ -15,7 +15,7 @@ def result(query):
     return result.fetchall()
 
 def order():
-    sql = "SELECT R.name, W.scores FROM recipes R, reviews W ORDER BY W.scores"
+    sql = "SELECT R.id, R.name, SUM(W.scores) AS sum FROM reviews W, recipes R GROUP BY R.id ORDER BY sum"
     return db.session.execute(sql).fetchall()
 
 def write(name, content):
