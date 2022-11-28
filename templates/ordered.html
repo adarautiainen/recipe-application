@@ -1,11 +1,14 @@
 <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
 
 <body>
+<div class="order">
 Reseptit arvioiden mukaan:
 <ul>
 {% for recipe in recipes %}
 <li><a href="/recipe/{{recipe.id}}">{{recipe.name}}</a></li>
 {% endfor %}
 </ul>
+</div>
 </body>
+
    
