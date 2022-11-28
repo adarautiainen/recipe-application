@@ -7,7 +7,7 @@ CREATE TABLE users (
 CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
     name TEXT,
-    content TEXT
+    content TEXT,
     user_id INTEGER REFERENCES users,
     visible INTEGER
     );
