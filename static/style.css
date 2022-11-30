@@ -56,31 +56,7 @@ body {
     padding: 15px;
 }
 
-.loginpage {
-    margin-top: 1em;
-    border: 3px rgb(112, 136, 113) solid;
-    padding: 15px;
-}
-
-.newrecipe {
-    margin-top: 1em;
-    border: 3px rgb(112, 136, 113) solid;
-    padding: 15px;
-}
-
-.register {
-    margin-top: 1em;
-    border: 3px rgb(112, 136, 113) solid;
-    padding: 15px;
-}
-
-.error {
-    margin-top: 1em;
-    border: 3px rgb(112, 136, 113) solid;
-    padding: 15px;
-}
-
-.order {
+.block {
     margin-top: 1em;
     border: 3px rgb(112, 136, 113) solid;
     padding: 15px;
