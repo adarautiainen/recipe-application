@@ -41,15 +41,15 @@ def add_reviews(recipe_id, user_id, scores, review):
     db.session.commit()
 
 def get_shown_reviews(user_id):
-    sql = "SELECT id, review FROM reviews WHERE user_id=:user_id AND visible = 1 ORDER BY name"
+    sql = "SELECT id, review FROM reviews WHERE user_id=:user_id AND visible = 1"
     return db.session.execute(sql, {"user_id":user_id}).fetchall()
 
 def delete_recipe(recipe_id, user_id):
-    sql = "UPDATE recipes SET visible = 0 WHERE recipe_id=:user_id AND user_id=:user_id"
+    sql = "UPDATE recipes SET visible = 0 WHERE recipe_id=:recipe_id AND user_id=:user_id"
     db.session.execute(sql, {"recipe_id":recipe_id, "user_id":user_id})
     db.session.commit()
 
 def delete_comment(review_id, user_id):
-    sql = sql = "UPDATE reviews SET visible = 0 WHERE review_id=:user_id AND user_id=:user_id"
+    sql = sql = "UPDATE reviews SET visible = 0 WHERE review_id=:review_id AND user_id=:user_id"
     db.session.execute(sql, {"review_id":review_id, "user_id":user_id})
     db.session.commit()

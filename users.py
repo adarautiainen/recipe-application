@@ -32,7 +32,7 @@ def register(username, password, role):
 def require_role(role):
     if role > session.get("user_role", 0):
         abort(403)
-
+    
 def user_id():
     return session.get("user_id", 0)
 

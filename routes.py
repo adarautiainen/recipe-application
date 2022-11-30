@@ -54,7 +54,7 @@ def review():
 #delete recipe
 @app.route("/delete", methods=["GET", "POST"])
 def delete_recipe():
-    users.require_role(True)
+    users.require_role(2)
 
     if request.method == "GET":
         shown_recipes = recipes.get_shown_recipes(users.user_id())
@@ -69,12 +69,12 @@ def delete_recipe():
 
 #delete comment
 @app.route("/deletecom", methods=["GET", "POST"])
-def delete_comemnt():
-    users.require_role(True)
+def delete_comment():
+    users.require_role(2)
 
     if request.method == "GET":
         shown_comments = recipes.get_shown_reviews(users.user_id())
-        return render_template("remove.html", list=shown_comments)
+        return render_template("removecom.html", list=shown_comments)
 
     if request.method == "POST":
         if "review" in request.form:
