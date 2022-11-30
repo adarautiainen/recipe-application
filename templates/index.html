@@ -25,14 +25,17 @@
 
 <div class="search">
 <form action="/result" method="GET">
-Hae reseptiä ainesosalla: <input type="text" name="query">
+Hae reseptiä: <input type="text" name="query">
 <br>
 <input type="submit" value="Hae">
 </form>
 </div>
 
-{% if session.user_role == 1%}
-<p>Poistotoiminnot:</p>
-<a href="/delete">Poista resepti tai kommentti</a>
+{% if session.user_role == 2%}
+<a href="/delete">Poista resepti</a>
+<a href="/deletecom">Poista kommentti</a>
+{% else %}
+<p>Ei nähtävää</p>
 {% endif %}
+
 </body>

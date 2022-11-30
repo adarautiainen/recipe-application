@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+<body>
+<h2>Poista resepti</h2>
+
+<form action="/delete" method="post">
+<p>Mikä resepti poistetaan?</p>
+{% for recipe in list %}
+<input type="radio" name="recipe" value="{{ recipe.id }}"> {{ recipe.name }} <br> 
+{% endfor %} <p>
+<input type="submit" value="Poista">
+</form><p>
+
+<a href="/">Takaisin etusivulle</a>
+</body>

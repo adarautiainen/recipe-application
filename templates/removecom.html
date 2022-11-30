@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+<body>
+<h2>Poista kommentti</h2>
+
+<form action="/deletecom" method="post">
+<p>Mikä kommentti poistetaan?</p>
+{% for review in list %}
+<input type="radio" name="review" value="{{ review.id }}"> {{ review.id }} <br> 
+{% endfor %} <p>
+<input type="submit" value="Poista">
+</form><p>
+
+<a href="/">Takaisin etusivulle</a>
+</body>
