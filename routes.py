@@ -45,6 +45,8 @@ def review():
     review = request.form["review"]
     if len(review) > 1000:
         return render_template("error.html", message = "Ei näin pitkiä kommentteja")
+    if scores == 0:
+        return render_template("error.html", message = "Arvosana puuttui")
     if review == "":
         review = "-"
 
