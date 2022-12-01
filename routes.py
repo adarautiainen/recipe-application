@@ -44,11 +44,11 @@ def review():
 
     review = request.form["review"]
     if len(review) > 1000:
-        return render_template("error.html", message = "Ei näin pitkiä kommentteja")
+        return render_template("errormessage.html", message = "Ei näin pitkiä kommentteja")
     if scores == 0:
-        return render_template("error.html", message = "Arvosana puuttui")
+        return render_template("errormessage.html", message = "Arvosana puuttui")
     if review == "":
-        review = "-"
+        return render_template("errormessage.html", message = "Teksti puuttui")
 
     recipes.add_reviews(recipe_id, users.user_id(), scores, review)
     return redirect("/recipe/"+str(recipe_id))
