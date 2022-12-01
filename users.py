@@ -11,7 +11,8 @@ def login(username, password):
         return False
     else:
         if check_password_hash(user.password, password):
-            session["user_id"] = user.id
+            session["user_id"] = user[0]
+            session["user_role"] = user[2]
             return True
         else:
             return False
