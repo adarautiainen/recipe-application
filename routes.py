@@ -57,7 +57,7 @@ def delete_recipe():
     users.require_role(2)
 
     if request.method == "GET":
-        shown_recipes = recipes.get_shown_recipes(users.user_id())
+        shown_recipes = recipes.get_shown_recipes()
         return render_template("remove.html", list=shown_recipes)
 
     if request.method == "POST":
@@ -73,13 +73,13 @@ def delete_comment():
     users.require_role(2)
 
     if request.method == "GET":
-        shown_comments = recipes.get_shown_reviews(users.user_id())
+        shown_comments = recipes.get_shown_reviews()
         return render_template("removecom.html", list=shown_comments)
 
     if request.method == "POST":
         if "review" in request.form:
             review = request.form["review"]
-            recipes.delete_review(review, users.user_id())
+            recipes.delete_comment(review, users.user_id())
 
     return redirect("/")
 
