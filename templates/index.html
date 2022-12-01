@@ -26,16 +26,16 @@
 <div class="search">
 <form action="/result" method="GET">
 Hae reseptiä: <input type="text" name="query">
-<br>
-<input type="submit" value="Hae">
+<br> <input type="submit" value="Hae">
 </form>
 </div>
 
+<div class="block">
 {% if session.user_role == 2%}
-<a href="/delete">Poista resepti</a>
+<a href="/delete">Poista resepti</a> |
 <a href="/deletecom">Poista kommentti</a>
 {% else %}
-<p>Ei nähtävää</p>
+<p>Omiin suosikkeihin: </p>
 {% endif %}
-
+</div>
 </body>
