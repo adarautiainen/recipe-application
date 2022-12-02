@@ -12,8 +12,10 @@ def new():
 
 @app.route("/write", methods=["POST"])
 def write():
+    users.check_csrf()
     name = request.form["name"]
     content = request.form["content"]
+
     if recipes.write(name, content):
         return redirect("/")
     else:
@@ -39,6 +41,7 @@ def result():
     
 @app.route("/review", methods=["POST"])
 def review():
+    users.check_csrf()
     recipe_id = request.form["recipe_id"]
     scores = int(request.form["scores"])
 
@@ -63,6 +66,7 @@ def delete_recipe():
         return render_template("remove.html", list=shown_recipes)
 
     if request.method == "POST":
+        users.check_csrf()
         if "recipe" in request.form:
             recipe = request.form["recipe"]
             recipes.delete_recipe(recipe, users.user_id())
@@ -79,6 +83,7 @@ def delete_comment():
         return render_template("removecom.html", list=shown_comments)
 
     if request.method == "POST":
+        users.check_csrf()
         if "review" in request.form:
             review = request.form["review"]
             recipes.delete_comment(review, users.user_id())
