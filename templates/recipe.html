@@ -34,6 +34,7 @@ Arvosana:
 <textarea name="review" rows="3" cols="40" maxlength="1000"></textarea>
 <p><input type="submit" value="Kommentoi">
 <input type="hidden" name="recipe_id" value="{{ id }}">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 {% endif %}
 

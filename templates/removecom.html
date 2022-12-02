@@ -8,6 +8,7 @@
 <input type="radio" name="review" value="{{ review.id }}"> {{ review.review }} <br> 
 {% endfor %} <p>
 <input type="submit" value="Poista">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form><p>
 
 <a href="/">Takaisin etusivulle</a>
