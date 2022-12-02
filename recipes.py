@@ -1,5 +1,5 @@
 from db import db
-import users, recipes
+import users
 from flask import session
 
 def get_recipes():
@@ -30,7 +30,8 @@ def get_info(recipe_id):
     return db.session.execute(sql, {"recipe_id": recipe_id}).fetchone()
 
 def get_reviews(recipe_id):
-    sql = "SELECT U.username, R.scores, R.review FROM users U, reviews R WHERE R.user_id=U.id AND R.recipe_id=:recipe_id AND visible = 1 ORDER BY R.id"
+    sql = "SELECT U.username, R.scores, R.review FROM users U, reviews R WHERE R.user_id=U.id \
+        AND R.recipe_id=:recipe_id AND visible = 1 ORDER BY R.id"
     return db.session.execute(sql, {"recipe_id":recipe_id}).fetchall()
 
 def get_shown_reviews():
@@ -43,7 +44,8 @@ def get_shown_recipes():
 
 def add_reviews(recipe_id, user_id, scores, review):
     visible = 1
-    sql = "INSERT INTO reviews (recipe_id, user_id, scores, review, visible) VALUES (:recipe_id, :user_id, :scores, :review, :visible)"
+    sql = "INSERT INTO reviews (recipe_id, user_id, scores, review, visible) \
+        VALUES (:recipe_id, :user_id, :scores, :review, :visible)"
     db.session.execute(sql, {"recipe_id":recipe_id, "user_id":user_id, "scores":scores, "review":review, "visible":visible})
     db.session.commit()
 
