@@ -38,5 +38,12 @@ Arvosana:
 </form>
 {% endif %}
 
+<form action="/favorite" method="post">
+<input type="submit" value="Lisää suosikkeihin">
+<input type="hidden" name="recipe_id" value="{{ id }}">
+<input type="hidden" name="recipe_name" value="{{ name }}">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+</form>
+
 <a href="/">Takaisin etusivulle</a>
 </body>
