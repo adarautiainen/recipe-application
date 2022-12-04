@@ -44,12 +44,12 @@ def review():
     users.check_csrf()
     recipe_id = request.form["recipe_id"]
     scores = int(request.form["scores"])
+    if scores < 1 or scores > 5:
+        return render_template("errormessage.html", message = "Arvosana puuttui")
 
     review = request.form["review"]
     if len(review) > 1000:
         return render_template("errormessage.html", message = "Ei näin pitkiä kommentteja")
-    if scores == 0:
-        return render_template("errormessage.html", message = "Arvosana puuttui")
     if review == "":
         return render_template("errormessage.html", message = "Teksti puuttui")
 
@@ -69,7 +69,7 @@ def delete_recipe():
         users.check_csrf()
         if "recipe" in request.form:
             recipe = request.form["recipe"]
-            recipes.delete_recipe(recipe, users.user_id())
+            recipes.delete_recipe(recipe)
 
     return redirect("/")
 
@@ -86,7 +86,7 @@ def delete_comment():
         users.check_csrf()
         if "review" in request.form:
             review = request.form["review"]
-            recipes.delete_comment(review, users.user_id())
+            recipes.delete_comment(review)
 
     return redirect("/")
 
@@ -123,3 +123,13 @@ def register():
         else:
             return render_template("errormessage.html", message="Jotain meni vikaan rekisteröinnissä")
         
+@app.route("/favorite", methods=["GET", "POST"])
+def favorite():
+    if request.method == "GET":
+        return render_template("favorites.html", list = recipes.getfavorites(users.user_id()))
+    if request.method == "POST":
+        users.check_csrf()
+        recipe_id = request.form["recipe_id"]
+        recipe_name = request.form["recipe_name"]
+        recipes.favorite(users.user_id(), recipe_id, recipe_name)
+        return redirect("/recipe/"+str(recipe_id))

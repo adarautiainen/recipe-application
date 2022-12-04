@@ -20,3 +20,10 @@ CREATE TABLE reviews (
     review TEXT,
     visible INTEGER
     );
+
+CREATE TABLE favorites(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users,
+    recipe_id INTEGER REFERENCES recipes,
+    recipe_name TEXT
+);
