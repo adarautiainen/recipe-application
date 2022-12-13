@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
 <body>
-    <div class="block">
+<div class="block">
 <h2>Julkaise uusi resepti </h2>
 <p>
 <form action="/write" method="post">
@@ -15,7 +15,7 @@
 
     <input type="submit" value="Julkaise">
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
-    </form>
+</form>
 </div>
 <a href="/">Takaisin etusivulle</a>
 </body>
