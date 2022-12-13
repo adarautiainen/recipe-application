@@ -7,7 +7,7 @@ def get_recipes():
     return db.session.execute(sql).fetchall()
 
 def result(query):
-    sql = "SELECT id, name, content FROM recipes WHERE visible = 1 AND name LIKE :query OR content LIKE :query"
+    sql = "SELECT id, name, content FROM recipes WHERE visible = 1 AND content ILIKE :query OR name ILIKE :query AND visible = 1"
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
 
