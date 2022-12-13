@@ -44,10 +44,9 @@ def review():
     users.check_csrf()
     recipe_id = request.form["recipe_id"]
     scores = int(request.form["scores"])
+    review = request.form["review"]
     if scores < 1 or scores > 5:
         return render_template("errormessage.html", message = "Arvosana puuttui")
-
-    review = request.form["review"]
     if len(review) > 1000:
         return render_template("errormessage.html", message = "Ei näin pitkiä kommentteja")
     if review == "":
