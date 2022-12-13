@@ -1,6 +1,7 @@
 # Reseptisovellus
 
 Tämä web-sovellus on tehty Helsingin yliopiston kurssille Tietokantasovellus. 
+
 Sovelluksessa on reseptejä, joita käyttäjät voivat lukea. Käyttäjät voivat lisätä omia reseptejä sekä arvioida muiden reseptejä. 
 
 Sovelluksen ominaisuuksia ovat: 
