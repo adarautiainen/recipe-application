@@ -68,5 +68,5 @@ def favorite(user_id, recipe_id, recipe_name):
     db.session.commit()
 
 def getfavorites(user_id):
-    sql = "SELECT id, recipe_id, recipe_name FROM favorites WHERE user_id=:user_id ORDER BY recipe_name"
+    sql = "SELECT recipe_id, recipe_name FROM favorites WHERE user_id=:user_id ORDER BY recipe_name"
     return db.session.execute(sql, {"user_id":user_id}).fetchall()

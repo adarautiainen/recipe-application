@@ -15,7 +15,10 @@ def write():
     users.check_csrf()
     name = request.form["name"]
     content = request.form["content"]
-
+    if name == "":
+        return render_template("errormessage.html", message = "Reseptin nimi puuttui")
+    if content == "":
+        return render_template("errormessage.html", message = "Reseptin sisältö puuttui")
     if recipes.write(name, content):
         return redirect("/")
     else:
