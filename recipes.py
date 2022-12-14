@@ -12,7 +12,8 @@ def result(query):
     return result.fetchall()
 
 def order():
-    sql = "SELECT R.id, R.name, SUM(W.scores) FROM reviews W, recipes R WHERE R.visible = 1 GROUP BY R.id ORDER BY SUM(W.scores)"
+    sql = "SELECT R.id, R.name, COUNT(W.scores) FROM reviews W, recipes R WHERE R.visible = 1 \
+        AND W.visible = 1 GROUP BY R.id ORDER BY COUNT(W.scores)"
     return db.session.execute(sql).fetchall()
 
 def write(name, content):
@@ -68,5 +69,5 @@ def favorite(user_id, recipe_id, recipe_name):
     db.session.commit()
 
 def getfavorites(user_id):
-    sql = "SELECT recipe_id, recipe_name FROM favorites WHERE user_id=:user_id ORDER BY recipe_name"
+    sql = "SELECT recipe_id, recipe_name FROM favorites WHERE user_id=:user_id GROUP BY recipe_id, recipe_name ORDER BY recipe_name"
     return db.session.execute(sql, {"user_id":user_id}).fetchall()
