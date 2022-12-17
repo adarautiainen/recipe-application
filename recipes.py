@@ -7,13 +7,14 @@ def get_recipes():
     return db.session.execute(sql).fetchall()
 
 def result(query):
-    sql = "SELECT id, name, content FROM recipes WHERE visible = 1 AND content ILIKE :query OR name ILIKE :query AND visible = 1"
+    sql = "SELECT id, name, content FROM recipes WHERE visible = 1 AND content \
+         ILIKE :query OR name ILIKE :query AND visible = 1"
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
 
 def order():
-    sql = "SELECT R.id, R.name, SUM(W.scores) FROM reviews W, recipes R WHERE R.visible = 1 \
-        AND W.visible = 1 GROUP BY R.id ORDER BY SUM(W.scores)"
+    sql = "SELECT R.id, R.name, AVG(W.scores) FROM recipes R LEFT JOIN reviews W ON W.recipe_id = R.id WHERE R.visible = 1 \
+        AND W.visible = 1 GROUP BY R.id ORDER BY AVG(W.scores) DESC"
     return db.session.execute(sql).fetchall()
 
 def write(name, content):
