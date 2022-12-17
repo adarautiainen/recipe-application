@@ -12,8 +12,8 @@ def result(query):
     return result.fetchall()
 
 def order():
-    sql = "SELECT R.id, R.name, COUNT(W.scores) FROM reviews W, recipes R WHERE R.visible = 1 \
-        AND W.visible = 1 GROUP BY R.id ORDER BY COUNT(W.scores)"
+    sql = "SELECT R.id, R.name, SUM(W.scores) FROM reviews W, recipes R WHERE R.visible = 1 \
+        AND W.visible = 1 GROUP BY R.id ORDER BY SUM(W.scores)"
     return db.session.execute(sql).fetchall()
 
 def write(name, content):
